@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+    {% include 'header.html' %}
+    {% include 'hero.html' %}
+    {% include 'services.html' %}
+
+    <div class="fixed bottom-0 right-0 mb-4 mr-4 z-10">
+        <div>
+          <a
+            title="Follow me on twitter"
+            href="#"
+            class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110"
+          >
+            <img
+              class="object-cover object-center w-full h-full rounded-full bg-[#EA8A04]"
+              src="https://img.icons8.com/?size=512&id=39805&format=png"
+            />
+          </a>
+        </div>
+      </div>
+      
+    {% include 'product_section.html' %}
+    {% include 'testimonials.html' %}
+    {% include 'footer.html' %}
+{% endblock %}
+```

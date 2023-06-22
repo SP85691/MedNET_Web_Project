@@ -1,0 +1,16 @@
+{
+  "name": "hms-v-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "npx tailwindcss -i ./app/static/input.css -o ./app/static/css/main.css --watch"
+
+  },
+  "author": "Surya Pratap",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
