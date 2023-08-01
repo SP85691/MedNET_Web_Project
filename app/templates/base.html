@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{{ url_for('static', filename=('css/main.css')) }}">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
 
+    <style>
+        .material-symbols-outlined {
+            width: 2rem;
+            height: 2rem;
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 48
+        }
+        </style>
     {% block content %}{% endblock %}
 
 </body>
