@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, jsonify, redirect, url_fo
 from flask_login import login_required, current_user, login_remembered
 from email.message import EmailMessage
 import smtplib
-from app.models import User
+from app.models import User, Contact_Us
 from app import db
 
 main = Blueprint('main', __name__) 
@@ -21,14 +21,18 @@ def contact():
 
 @main.route('/get_in_touch', methods=['POST', 'GET'])
 def get_in_touch():
-    if request.method == 'POST':
-        name = request.form.get('name')
-        email = request.form.get('email')
-        message = request.form.get('message')
+        if request.method == 'POST':
+            name = request.form.get('name')
+            email = request.form.get('email')
+            message = request.form.get('message')
 
-        get_in_touch(name, email, message)
+            contact_upt = Contact_Us(name=name, email=email, message=message)
 
-    return redirect(url_for('main.index'))
+            db.session.add(contact_upt)
+            db.session.commit()
+            db.session.close()
+
+        return redirect(url_for('main.index')) 
 
 def get_in_touch(name, email, message):
 

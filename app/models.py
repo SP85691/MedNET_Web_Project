@@ -23,6 +23,7 @@ class User(db.Model, UserMixin):
 
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
     appointments = db.relationship('Appointment', backref='user', lazy=True)
+    contact_us = db.relationship('Contact_Us', backref='user', lazy=True)
 
 
     def __repr__(self):
@@ -44,3 +45,17 @@ class Appointment(db.Model):
 
     def __repr__(self):
         return f'<Appointment {self.username}>'
+
+    
+class Contact_Us(db.Model):
+    __tablename__ = "contact_us"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(255), nullable=False)
+    email = db.Column(db.String(255), nullable=False)
+    message = db.Column(db.Text)
+
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return f'<Contact_Us {self.name}>'

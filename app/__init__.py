@@ -16,7 +16,7 @@ def create_app():
 
     db.init_app(app)
 
-    from .models import User, Appointment
+    from .models import User, Appointment, Contact_Us
 
     # Register blueprints
     from .blueprints.auth import auth
@@ -42,6 +42,7 @@ def create_app():
     admin = Admin(app, name='Control Panel')
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Appointment, db.session))
+    admin.add_view(ModelView(Contact_Us, db.session))
 
     
     with app.app_context():
